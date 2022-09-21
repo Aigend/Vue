@@ -26,3 +26,15 @@
 class Solution:
     def Find(self , target: int, array: List[List[int]]) -> bool:
         # write code here
+        row = len(array)
+        col = len(array[0])
+        i = row-1
+        j = 0
+        while i >= 0 and j < col:
+            if array[i][j] == target:
+                return True
+            elif array[i][j] > target:
+                i = i - 1
+            elif array[i][j] < target:
+                j = j + 1
+        return False

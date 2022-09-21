@@ -1,0 +1,196 @@
+select distinct prod_id from OrderItems
+
+# CONVERT()函数将值转换为指定的数据类型或字符集。
+# CONVERT(value, type)
+# CONVERT(value USING charset)
+SELECT CONVERT("2017-08-29", DATE);
+SELECT CONVERT(150, CHAR);
+SELECT CONVERT("14:06:10", TIME);
+SELECT CONVERT("nhooo.com" USING latin1);
+SELECT * FROM table ORDER BY CONVERT(field USING GBK) ASC
+select cust_name from Customers order by convert(cust_name using gbk) desc
+select cust_id, order_num from Orders order by convert(cust_id using gbk), order_date desc
+select quantity, item_price from OrderItems order by quantity desc, item_price desc
+
+SELECT
+    prod_id,
+    prod_name
+FROM
+    Products
+WHERE
+    prod_price = 9.49;
+
+
+SELECT
+    prod_id,
+    prod_name
+FROM
+    Products
+WHERE
+    prod_price >= 9;
+
+
+SELECT
+    prod_name,
+    prod_price
+FROM
+    Products
+WHERE
+    prod_price BETWEEN 3 AND 6
+ORDER BY
+    prod_price;
+
+
+select prod_name,prod_price
+from Products
+where prod_price >= 3 and prod_price <= 6
+order by prod_price
+
+
+select order_num
+from OrderItems
+group by order_num
+having max(quantity)  >= 100
+
+
+SELECT
+    DISTINCT order_num
+FROM
+    OrderItems
+WHERE
+    quantity >= 100;
+
+
+SELECT
+    vend_name
+FROM
+    Vendors
+WHERE
+    vend_country = 'USA' AND
+    vend_state = 'CA';
+
+
+select order_num,prod_id,quantity from OrderItems
+where prod_id in ('BR01','BR02','BR03')
+and quantity>100
+order by prod_id,quantity desc
+
+
+SELECT
+    prod_name,
+    prod_price
+FROM
+    Products
+WHERE
+    prod_price >= 3 AND
+    prod_price <= 6
+ORDER BY
+    prod_price;
+
+
+select prod_name,prod_price
+from Products
+where prod_price between 3 and 6
+order by prod_price
+
+
+select prod_name,prod_desc from Products where prod_desc like '%toy%'
+
+
+select prod_name,prod_desc
+from Products
+where prod_desc not like '%toy%'
+order by prod_name
+
+
+SELECT prod_name, prod_desc
+FROM Products
+WHERE prod_desc NOT REGEXP 'toy'
+ORDER BY prod_name;
+
+
+# 1.locate函数：Locate(str,sub) > 0，表示sub字符串包含str字符串；Locate(str,sub) = 0，表示sub字符串不包含str字符串。
+select prod_name,prod_desc from Products
+where locate("toy",prod_desc) = 0
+order by prod_name asc
+
+
+# 2.instr(filed,str)函数：返回str子字符串在filed字符串的第一次出现位置
+select prod_name,prod_desc from Products
+where instr(prod_desc,"toy") = 0
+order by prod_name asc
+
+
+select vend_id,
+vend_name as vname,
+vend_address as vaddress,
+vend_city as vcity from Vendors
+order by vname
+
+
+select
+prod_id,prod_price,round(prod_price*0.9,3) sale_price
+from
+Products
+
+
+字符串的截取：substring(字符串，起始位置，截取字符数）
+这里的位置索引都是从1开始的，不是从0
+字符串的拼接：concat(字符串1，字符串2，字符串3,...)
+字母大写：upper(字符串）
+select cust_id,cust_name,
+upper(concat(substring(cust_name,1,2),substring(cust_city,1,3))) as user_login
+from Customers
+
+
+select order_num, order_date
+from Orders
+where year(order_date) = '2020' and month(order_date) = '1'
+order by order_date
+
+
+select order_num, order_date
+from Orders
+where date_format(order_date, '%Y-%m')='2020-01'
+order by order_date
+
+
+select order_num, order_date
+from Orders
+where order_date regexp '2020-01'
+order by order_date
+
+给出所有以“sa”开头的名称。例子――sam,samarth。
+SELECT name FROM student_tbl WHERE name REGEXP '^sa';
+给出所有以“on”结尾的名称。例子――norton,merton.
+SELECT name FROM student_tbl WHERE name REGEXP 'on$';
+匹配p1、p2或p3(p1|p2|p3)中的任何模式:
+SELECT name FROM student_tbl WHERE REGEXP 'be|ae' ;
+匹配方括号([abc])中列出的任何字符:
+SELECT name FROM student_tbl WHERE REGEXP '[jz]' ;
+匹配任何不在方括号中列出的字符。([^abc]):
+SELECT name FROM student_tbl WHERE REGEXP '[^jz]' ;
+
+
+
+
+
+
+
+
+select *
+from Orders
+where order_date >= '2020-01-01 00:00:00' and order_date <= '2020-01-31 23:59:59'
+order by order_date;
+
+
+select order_num, order_date
+from Orders
+where left(order_date, 7) = '2020-01'
+order by order_date
+
+
+select order_num, order_date
+from Orders
+where order_date like '2020-01%'
+order by order_date

@@ -10,17 +10,18 @@ from typing import List
 class Solution:
     def GetLeastNumbers_Solution(self, input: List[int], k: int) -> List[int]:
         res = []
-        if len(input) >= k != 0:
+        n = len(input)
+        if n >= k != 0:
             import heapq
             pq = []
             for i in range(k):
                 # 构建一个k个大小的堆
                 heapq.heappush(pq, input[i])
-            for i in range(k, len(input)):
+            for i in range(k, n):
                 if pq[0] < input[i]:
                     heapq.heapreplace(pq, input[i])
             # 堆中元素取出入数组
-            for i in range(k-1):
+            for i in range(k):
                 res.append(pq[0])
                 heapq.heappop(pq)
         return res

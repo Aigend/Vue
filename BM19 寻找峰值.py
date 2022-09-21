@@ -24,8 +24,9 @@ class Solution:
         right = len(nums)-1
         while left < right:
             mid = (left + right)//2
+            # // 右边是往下，不一定有坡峰
             if nums[mid] > nums[right]:
                 right = mid
             else:
-                left = mid + 1
+                left = mid + 1 # //右边是往上，一定能找到波峰
         return right
