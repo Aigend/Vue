@@ -1,0 +1,72 @@
+安装node 自带npm，使用node -v或者npm -v查看对应的版本
+
+C:\Users\Administrator\AppData\Roaming\npm
+C:\Users\Administrator>npm -v
+8.9.0
+C:\Users\Administrator>npm install npm -g
+
+added 1 package in 22s
+
+11 packages are looking for funding
+  run `npm fund` for details
+
+C:\Users\Administrator>npm list -global
+C:\Users\Administrator\AppData\Roaming\npm
+`-- npm@8.9.0
+
+
+vue脚手架隐藏了webpack的相关配置
+vue inspect > output.js
+
+C:\Users\Administrator>npm install -g @vue/cli
+npm WARN deprecated source-map-url@0.4.1: See https://github.com/lydell/source-map-url#deprecated
+npm WARN deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+npm WARN deprecated apollo-tracing@0.15.0: The `apollo-tracing` package is no longer part of Apollo Server 3. See https://www.apollograph
+
+babel ES6---》ES5
+eslint webpack js语法检查
+
+
+npm install -g cnpm -registry=https://registry.npm.taobao.org
+npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+npm WARN deprecated har-validator@5.1.5: this library is no longer supported
+npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+
+added 372 packages in 2m
+
+3 packages are looking for funding
+  run `npm fund` for details
+
+
+F:\code\vue\vue_test>cnpm -v
+cnpm@7.1.1 (C:\Users\Administrator\AppData\Roaming\npm\node_modules\cnpm\lib\parse_argv.js)
+npm@6.14.17 (C:\Users\Administrator\AppData\Roaming\npm\node_modules\cnpm\node_modules\npm\lib\npm.js)
+node@16.15.0 (E:\nodejs\node.exe)
+npminstall@5.8.1 (C:\Users\Administrator\AppData\Roaming\npm\node_modules\cnpm\node_modules\npminstall\lib\index.js)
+prefix=C:\Users\Administrator\AppData\Roaming\npm
+win32 x64 10.0.18363
+registry=https://registry.npmmirror.com
+
+
+
+F:\code\vue\vue-advance-master>cd F:\code\vue\vue_test
+
+F:\code\vue\vue_test>vue inspect > output.js
+
+F:\code\vue\vue_test>
+
+
+PS F:\code\vue> cd F:\code\vue\vue_test
+PS F:\code\vue\vue_test> vue inspect > output.js
+vue : 无法加载文件 C:\Users\Administrator\AppData\Roaming\npm\vue.ps1，因为在此系统上禁止运行脚本。有关详细信息，请参阅 https:/go.microsoft.com/ o.microsoft.com/
+fwlink/?LinkID=135170 中的 about_Execution_Policies。
+所在位置 行:1 字符: 1
++ vue inspect > output.js
++ ~~~
+    + CategoryInfo          : SecurityError: (:) []，PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess
+
+
+npm view less-loader versions
+
+npm i less-loader
